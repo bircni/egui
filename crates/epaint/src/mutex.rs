@@ -403,7 +403,7 @@ where
 
 #[cfg(test)]
 mod tests {
-    #![allow(clippy::disallowed_methods)] // Ok for tests
+    #![allow(clippy::disallowed_methods, reason = "Ok for tests")] // Ok for tests
 
     use crate::mutex::Mutex;
     use std::time::Duration;
@@ -437,7 +437,7 @@ mod tests {
 #[cfg(feature = "deadlock_detection")]
 #[cfg(test)]
 mod tests_rwlock {
-    #![allow(clippy::disallowed_methods)] // Ok for tests
+    #![allow(clippy::disallowed_methods, reason = "Ok for tests")] // Ok for tests
 
     use crate::mutex::RwLock;
     use std::time::Duration;

@@ -467,7 +467,7 @@ impl IdTypeMap {
 
     /// For tests
     #[cfg(feature = "persistence")]
-    #[allow(unused, clippy::allow_attributes)]
+    #[allow(unused, clippy::allow_attributes, reason = "Test method may be unused in some builds")]
     fn get_generation<T: SerializableAny>(&self, id: Id) -> Option<usize> {
         let element = self.map.get(&hash(TypeId::of::<T>(), id))?;
         match element {

@@ -1209,7 +1209,7 @@ impl Context {
             self.check_for_id_clash(w.id, w.rect, "widget");
         }
 
-        #[allow(clippy::let_and_return, clippy::allow_attributes)]
+        #[allow(clippy::let_and_return, clippy::allow_attributes, reason = "Clearer to separate the variable assignment from the return for debugging")]
         let res = self.get_response(w);
 
         #[cfg(feature = "accesskit")]
@@ -3474,7 +3474,7 @@ impl Context {
     /// the function is still called, but with no other effect.
     ///
     /// No locks are held while the given closure is called.
-    #[allow(clippy::unused_self, clippy::let_and_return, clippy::allow_attributes)]
+    #[allow(clippy::unused_self, clippy::let_and_return, clippy::allow_attributes, reason = "Method signature required for feature consistency, return pattern for debugging")]
     #[inline]
     pub fn with_accessibility_parent<R>(&self, _id: Id, f: impl FnOnce() -> R) -> R {
         // TODO(emilk): this isn't thread-safe - another thread can call this function between the push/pop calls
