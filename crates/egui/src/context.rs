@@ -2290,7 +2290,7 @@ impl Context {
     /// Called at the end of the pass.
     #[cfg(debug_assertions)]
     fn debug_painting(&self) {
-        #![expect(clippy::iter_over_hash_type)] // ok to be sloppy in debug painting
+        #![expect(clippy::iter_over_hash_type, reason = "ok to be sloppy in debug painting")] // ok to be sloppy in debug painting
 
         let paint_widget = |widget: &WidgetRect, text: &str, color: Color32| {
             let rect = widget.interact_rect;

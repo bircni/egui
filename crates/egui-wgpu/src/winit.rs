@@ -1,4 +1,4 @@
-#![allow(clippy::missing_errors_doc)]
+#![allow(clippy::missing_errors_doc, reason = "Internal API, errors are self-explanatory")]
 #![allow(clippy::undocumented_unsafe_blocks, reason = "Documenting all unsafe blocks would be verbose")]
 
 use crate::capture::{CaptureReceiver, CaptureSender, CaptureState, capture_channel};
@@ -579,7 +579,7 @@ impl Painter {
             .retain(|id, _| active_viewports.contains(id));
     }
 
-    #[expect(clippy::needless_pass_by_ref_mut, clippy::unused_self)]
+    #[expect(clippy::needless_pass_by_ref_mut, clippy::unused_self, reason = "Consistent API design")]
     pub fn destroy(&mut self) {
         // TODO(emilk): something here?
     }

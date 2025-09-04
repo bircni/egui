@@ -1,5 +1,5 @@
 #![warn(missing_docs)] // Let's keep `Ui` well-documented.
-#![allow(clippy::use_self)]
+#![allow(clippy::use_self, reason = "Self-referential code is clearer without Self")]
 
 use emath::GuiRounding as _;
 use epaint::mutex::RwLock;

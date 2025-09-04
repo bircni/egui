@@ -468,7 +468,7 @@ fn should_prioritize_hits_on_back(back: Rect, front: Rect) -> bool {
 
 #[cfg(test)]
 mod tests {
-    #![expect(clippy::print_stdout)]
+    #![expect(clippy::print_stdout, reason = "Test utility function")]
 
     use emath::{Rect, pos2, vec2};
 
