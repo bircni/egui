@@ -304,7 +304,7 @@ impl AppRunner {
     }
 
     fn handle_platform_output(&self, platform_output: egui::PlatformOutput) {
-        #![allow(deprecated)]
+        #![allow(deprecated, reason = "Maintaining backwards compatibility")]
 
         #[cfg(feature = "web_screen_reader")]
         if self.egui_ctx.options(|o| o.screen_reader) {

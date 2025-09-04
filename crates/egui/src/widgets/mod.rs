@@ -22,7 +22,7 @@ mod slider;
 mod spinner;
 pub mod text_edit;
 
-#[expect(deprecated)]
+#[expect(deprecated, reason = "Maintaining backwards compatibility")]
 pub use self::selected_label::SelectableLabel;
 pub use self::{
     button::Button,

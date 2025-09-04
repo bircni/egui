@@ -1,6 +1,9 @@
 //! [`egui`] bindings for web apps (compiling to WASM).
 
-#![allow(clippy::missing_errors_doc)] // So many `-> Result<_, JsValue>`
+#![allow(
+    clippy::missing_errors_doc,
+    reason = "Internal API, errors are self-explanatory"
+)] // So many `-> Result<_, JsValue>`
 
 mod app_runner;
 mod backend;
