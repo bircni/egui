@@ -16,7 +16,7 @@
 #![doc = document_features::document_features!()]
 //!
 
-#![allow(unsafe_code)]
+#![allow(unsafe_code, reason = "Required for low-level operations")]
 
 pub use wgpu;
 

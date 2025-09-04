@@ -77,7 +77,7 @@ fn set_title_and_icon(_title: &str, _icon_data: Option<&IconData>) -> AppIconSta
 
 /// Set icon for Windows applications.
 #[cfg(target_os = "windows")]
-#[expect(unsafe_code)]
+#[expect(unsafe_code, reason = "Required for low-level operations")]
 fn set_app_icon_windows(icon_data: &IconData) -> AppIconStatus {
     use crate::icon_data::IconDataExt as _;
     use windows_sys::Win32::UI::Input::KeyboardAndMouse::GetActiveWindow;
@@ -199,7 +199,7 @@ fn set_app_icon_windows(icon_data: &IconData) -> AppIconStatus {
 
 /// Set icon & app title for `MacOS` applications.
 #[cfg(target_os = "macos")]
-#[expect(unsafe_code)]
+#[expect(unsafe_code, reason = "Required for low-level operations")]
 fn set_title_and_icon_mac(title: &str, icon_data: Option<&IconData>) -> AppIconStatus {
     use crate::icon_data::IconDataExt as _;
     profiling::function_scope!();

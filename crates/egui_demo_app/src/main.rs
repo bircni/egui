@@ -1,7 +1,7 @@
 //! Demo app for egui
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // hide console window on Windows in release
-#![allow(rustdoc::missing_crate_level_docs)] // it's an example
+#![allow(rustdoc::missing_crate_level_docs, reason = "its an example")] // it's an example
 #![allow(clippy::never_loop)] // False positive
 
 #[global_allocator]
@@ -43,7 +43,7 @@ fn main() -> eframe::Result {
         }
 
         // SAFETY: we call this from the main thread without any other threads running.
-        #[expect(unsafe_code)]
+        #[expect(unsafe_code, reason = "Required for low-level operations")]
         unsafe {
             std::env::set_var("RUST_LOG", rust_log);
         }

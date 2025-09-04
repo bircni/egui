@@ -313,7 +313,7 @@ impl std::fmt::Display for RepaintCause {
 
 impl RepaintCause {
     /// Capture the file and line number of the call site.
-    #[expect(clippy::new_without_default)]
+    #[expect(clippy::new_without_default, reason = "Default may not be meaningful")]
     #[track_caller]
     pub fn new() -> Self {
         let caller = Location::caller();
@@ -2163,7 +2163,7 @@ impl Context {
         self.write(|ctx| {
             if ctx.memory.options.zoom_factor != zoom_factor {
                 ctx.new_zoom_factor = Some(zoom_factor);
-                #[expect(clippy::iter_over_hash_type)]
+                #[expect(clippy::iter_over_hash_type, reason = "Iteration order not important here")]
                 for viewport_id in ctx.all_viewport_ids() {
                     ctx.request_repaint(viewport_id, cause.clone());
                 }
@@ -2783,7 +2783,7 @@ impl Context {
     /// Is an egui context menu open?
     ///
     /// This only works with the old, deprecated [`crate::menu`] API.
-    #[expect(deprecated)]
+    #[expect(deprecated, reason = "Maintaining backwards compatibility")]
     #[deprecated = "Use `is_popup_open` instead"]
     pub fn is_context_menu_open(&self) -> bool {
         self.data(|d| {
@@ -3416,7 +3416,7 @@ impl Context {
             }
         });
 
-        #[expect(deprecated)]
+        #[expect(deprecated, reason = "Maintaining backwards compatibility")]
         ui.horizontal(|ui| {
             ui.label(format!(
                 "{} menu bars",

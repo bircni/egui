@@ -1,5 +1,5 @@
 #![allow(clippy::missing_errors_doc)]
-#![allow(clippy::undocumented_unsafe_blocks)]
+#![allow(clippy::undocumented_unsafe_blocks, reason = "Documenting all unsafe blocks would be verbose")]
 
 use crate::capture::{CaptureReceiver, CaptureSender, CaptureState, capture_channel};
 use crate::{RenderState, SurfaceErrorAction, WgpuConfiguration, renderer};

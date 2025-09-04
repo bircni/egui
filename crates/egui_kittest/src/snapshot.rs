@@ -711,7 +711,7 @@ impl SnapshotResults {
     }
 
     /// Panics if there are any errors, displaying each.
-    #[expect(clippy::unused_self)]
+    #[expect(clippy::unused_self, reason = "Consistent API design")]
     #[track_caller]
     pub fn unwrap(self) {
         // Panic is handled in drop

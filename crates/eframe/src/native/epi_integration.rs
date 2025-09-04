@@ -136,7 +136,7 @@ pub fn create_storage(_app_name: &str) -> Option<Box<dyn epi::Storage>> {
     None
 }
 
-#[expect(clippy::unnecessary_wraps)]
+#[expect(clippy::unnecessary_wraps, reason = "Consistent API design with other methods")]
 pub fn create_storage_with_file(_file: impl Into<PathBuf>) -> Option<Box<dyn epi::Storage>> {
     #[cfg(feature = "persistence")]
     return Some(Box::new(
@@ -169,7 +169,7 @@ pub struct EpiIntegration {
 }
 
 impl EpiIntegration {
-    #[expect(clippy::too_many_arguments)]
+    #[expect(clippy::too_many_arguments, reason = "Complex widget needs many parameters")]
     pub fn new(
         egui_ctx: egui::Context,
         window: &winit::window::Window,
