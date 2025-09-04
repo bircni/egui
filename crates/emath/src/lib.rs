@@ -19,7 +19,7 @@
 #![cfg_attr(feature = "document-features", doc = document_features::document_features!())]
 //!
 
-#![allow(clippy::float_cmp)]
+#![allow(clippy::float_cmp, reason = "float_cmp is acceptable in egui for fast approximate operations")]
 
 use std::ops::{Add, Div, Mul, RangeInclusive, Sub};
 
